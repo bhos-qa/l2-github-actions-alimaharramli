@@ -1,0 +1,19 @@
+name: Gradle Test Actions
+on:
+  pull_request:
+    branches:
+      - develop
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Gradle Test
+        run: ./gradlew test
+
+      - name: Gradle Build
+        run: ./gradlew build
